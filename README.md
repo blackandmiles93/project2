@@ -1,9 +1,22 @@
 # project2
 
 # User Story
-Users will be able to add new articles to the database, edit existing articles, and view articles.
+
+<!-- User Story to appear as a table image from pages -->
+Inline-style:
+![alt text](userStoryPic.png "User Story")
+
+# ERD
+
+<!-- ERD to appear as an image -->
+Inline-style:
+![alt text]()
+
+<!-- draw.io img -->
+
+# Routes
+
+<!-- another image file -->
 
 Inline-style:
-![alt text](./project2/user_story.pages "User Story")
-
-
+![alt text]()
