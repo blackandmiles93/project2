@@ -14,7 +14,7 @@ Inline-style:
 
 <!-- ERD to appear as an image -->
 Inline-style:
-![alt text]()
+![alt text](/miscellaneous/wikicreator.png "ERD")
 
 <!-- draw.io img -->
 
