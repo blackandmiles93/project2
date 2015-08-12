@@ -19,4 +19,4 @@ Inline-style:
 <!-- another image file -->
 
 Inline-style:
-![alt text]()
+![alt text](routesPic.png "Page Routes")
