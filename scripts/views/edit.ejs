@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>edit</title>
+</head>
+<body>
+	<div class="container">
+		<div class="top">
+			<!-- Allows user to edit the content by content_id number -->
+			<form action="/VCP/<%= content.content_id %>/edit?_method=PUT" method="POST">
+				<input type="text" placeholder="Title"><br><br>
+				<textarea placeholder="Content here" cols="50" rows="50"><%= content.article %></textarea><br><br>
+				<button>Submit</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

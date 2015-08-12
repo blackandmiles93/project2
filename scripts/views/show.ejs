@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>content</title>
+</head>
+<body>
+  <div class="container">
+    <!-- Displays the title and content of the article -->
+    <h1><%= show.title %></h1>
+  </div>
+  <div class="article">
+    <p><%= show.article %></p>
+    <p><%= show.username %></p>
+    <p>last edited: <%= show.created %></p>
+  </div>
+  <!-- form buttons for editing content and deleting it -->
+  
+    <a href="/VCP/<%= show.content_id %>/edit">Edit</a>
+
+  <form action="/VCP/<%= show.content_id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+  </form>
+</body>
+</html>
