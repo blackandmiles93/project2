@@ -48,7 +48,7 @@ app.post('/VCP/new', function(req, res) {
 });
 
 app.get('/VCP/:id', function(req, res) {
-  db.get('SELECT content.*, users.username FROM content INNER JOIN users ON users.user_id = content.user_id WHERE content_id = ?', req.params.id, function (err, row) {
+  db.get('SELECT content, users.username FROM content INNER JOIN users ON users.user_id = content.user_id WHERE content_id = ?', req.params.id, function (err, row) {
     if (err) {
       throw err;
     } else {

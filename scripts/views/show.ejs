@@ -9,18 +9,18 @@
 <body>
   <div class="container">
     <!-- Displays the title and content of the article -->
-    <h1><%= show.title %></h1>
+    <h1><%= article.title %></h1>
   </div>
   <div class="article">
-    <p><%= show.article %></p>
-    <p><%= show.username %></p>
-    <p>last edited: <%= show.created %></p>
+    <p><%= article.article %></p>
+    <p><%= article.username %></p>
+    <p>last edited: <%= article.created %></p>
   </div>
   <!-- form buttons for editing content and deleting it -->
   
-    <a href="/VCP/<%= show.content_id %>/edit">Edit</a>
+    <a href="/VCP/<%= article.content_id %>/edit">Edit</a>
 
-  <form action="/VCP/<%= show.content_id %>?_method=DELETE" method="POST">
+  <form action="/VCP/<%= article.content_id %>?_method=DELETE" method="POST">
     <button>Delete</button>
   </form>
 </body>
