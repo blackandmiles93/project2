@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Add content</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<form action="/VCP/new" method="POST">
-    <input type="text" name="username">
-    <label for="username">: Name</label>
+	<form action="/VCP/<%=  %>" method="POST">
     <input type="text" name="title">
     <label for="title">: Title</label><br>
     <textarea name="article" placeholder="content here" cols="50" rows="50"></textarea>

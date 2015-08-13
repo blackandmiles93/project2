@@ -8,7 +8,7 @@ var methodOverride = require('method-override');
 var urlencodedBodyParser = bodyParser.urlencoded({extended: false});
 var marked = require('marked');
 
-app.use(express.static('../stylesheets'));
+app.use(express.static('/Users/mperkins/dev/wdi/diana_students/projects/project2/stylesheets'));
 app.use(express.static("https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css"));
 app.use(urlencodedBodyParser);
 app.use(methodOverride('_method'));
@@ -36,7 +36,7 @@ app.get('/VCP/new', function(req, res) {
 });
 
 app.post('/VCP/new', function(req, res) {
-  db.run('INSERT INTO content (user_id, title, article) VALUES (?,?,?)', parseInt(req.params.id) , req.body.title, req.body.article, function(err) {
+  db.run('INSERT INTO content (user_id, title, article) VALUES (?,?,?)', parseInt(req.params.id), req.body.title, req.body.article, function(err) {
     if (err) throw err;
     else {
       res.redirect('/VCP');
@@ -46,7 +46,8 @@ app.post('/VCP/new', function(req, res) {
 });
 
 app.get('/VCP/:id', function(req, res) {
-  db.get('SELECT content.*,users.username FROM content INNER JOIN users ON users.user_id = content.user_id WHERE content_id = ?', parseInt(req.params.id), function (err, show) {
+  db.get('SELECT content.*, users.username FROM content INNER JOIN users ON users.user_id = content.user_id WHERE content_id = ?', parseInt(req.params.id), function (err, show) {
+    console.log(parseInt(req.params.id));
     if (err) throw err;
     else {
       res.render('show.ejs', {show: show});
@@ -54,36 +55,36 @@ app.get('/VCP/:id', function(req, res) {
   });
 });
 
-app.get('/VCP/:id/edit', function(req, res) {
-  db.get('SELECT * FROM content', function(err, content) {
-    if (err) {
-      throw err;
-    }
-    else {
-      res.render('edit.ejs', {content: content});
-    }
-  });
-});
+// app.get('/VCP/:id/edit', function(req, res) {
+//   db.get('SELECT * FROM content WHERE content_id = ?', parseInt(req.params.id), function(err, content) {
+//     if (err) {
+//       throw err;
+//     }
+//     else {
+//       res.render('edit.ejs', {content: content});
+//     }
+//   });
+// });
 
-app.put('/VCP/:id', function(req, res) {
-  db.run('UPDATE content SET article = ?, table = ? WHERE content_id = ?', req.body.article, parseInt(req.params.id), function(err) {
-    if (err) throw err;
-    else {
-      console.log('content updated');
-      res.redirect('/VCP')
-    }
-  });
-});
+// app.put('/VCP/:id/edit', function(req, res) {
+//   db.run('UPDATE content SET title = ?, article = ? WHERE content_id = ?', req.body.title, req.body.article, req.params.id, function(err) {
+//     if (err) throw err;
+//     else {
+//       console.log('content updated');
+//       res.redirect('/VCP');
+//     }
+//   });
+// });
 
-app.delete('/VCP/:id', function(req, res) {
-  db.run('DELETE FROM content WHERE content_id = ?', parseInt(req.params.id), function(err) {
-    if (err) throw err;
-    else {
-      res.redirect('/VCP');
-      console.log('content deleted');
-    }
-  });
-});
+// app.delete('/VCP/:id', function(req, res) {
+//   db.run('DELETE FROM content WHERE content_id = ?', parseInt(req.params.id), function(err) {
+//     if (err) throw err;
+//     else {
+//       res.redirect('/VCP');
+//       console.log('content deleted');
+//     }
+//   });
+// });
 
 app.listen(3000, function(){
     console.log('listening on port 3000!');
