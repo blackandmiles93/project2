@@ -38,6 +38,7 @@ app.get('/VCP/new', function(req, res) {
 });
 
 app.post('/VCP/new', function(req, res) {
+  //insert user_id into content table
   db.run('INSERT INTO content (title, article, user_id) VALUES (?,?,?)', req.body.title, req.body.article, req.body.user_id, function(err) {
     if (err) throw err;
     else {
