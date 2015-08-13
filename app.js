@@ -32,12 +32,14 @@ app.get('/VCP', function(req, res) {
 });
 
 app.get('/VCP/new', function(req, res) {
+  //get a list of users to use in a dropdown in the form
   db.all("SELECT * FROM users", function(err, rows){
   res.render('new.ejs', {users: rows});
   })
 });
 
 app.post('/VCP/new', function(req, res) {
+  //fixed this insert user_id
   db.run('INSERT INTO content (title, article, user_id) VALUES (?,?,?)', req.body.title, req.body.article, req.body.user_id, function(err) {
     if (err) throw err;
     else {

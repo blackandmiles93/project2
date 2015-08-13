@@ -13,7 +13,8 @@
     <textarea name="article" placeholder="content here" cols="50" rows="50"></textarea>
     <label for="article">: Article</label>
 
-    <% users.forEach(function(user){ %>
+<!-- render all the users to choose from and store the user id in the value
+ -->    <% users.forEach(function(user){ %>
       <select name="user_id">
         <option value="<%= user.user_id %>"><%= user.username %></option>
       </select>
