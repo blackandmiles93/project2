@@ -8,23 +8,8 @@ var methodOverride = require('method-override');
 var urlencodedBodyParser = bodyParser.urlencoded({extended: false});
 var marked = require('marked');
 
-var sendgrid = require('sendgrid')(api_key);
+var sendgrid = require('sendgrid')('');
 
-db.get('SELECT content.*, users.user_email FROM content INNER JOIN users ON users.user_id = content.user_id WHERE content_id = ?', req.params.id, function(err) {
-  var email = new sendgrid.Email({
-    to:       'users.user_email',
-    from:     'mperkins1993@gmail.com',
-    subject:  'A Vitriolic Cherry Pitt Update',
-    text:     "Hi!\n You're article has been edited! Please check the edits to see what has been done to it!\n Thanks for contributing to the wiki!"
-  });
-  sendgrid.send(email, function(err, json) {
-    if (err) { 
-      return console.error(err); 
-    }
-    else {
-      console.log(json);
-  });  
-});
 
 app.use(urlencodedBodyParser);
 app.use(methodOverride('_method'));
@@ -64,10 +49,7 @@ app.get('/VCP/new', function(req, res) {
 
 // Posting the new article and information and storing it in the wiki.db (database)
 app.post('/VCP/new', function(req, res) {
-  db.run('INSERT INTO content (title, article, user_id) VALUES (?,?,?)', req.body.title, req.body.article, req.body.user_id, function(err) {
-    // console.log(parseInt(req.body.user_id));
-    // console.log(req.body.title);
-    // console.log(req.body.article);
+  db.run('INSERT INTO content (user_email, title, article, user_id) VALUES (?,?,?)', req.body.title, req.body.article, req.body.user_id, function(err) {
     if (err) throw err;
     else {
       res.redirect('/VCP');
@@ -106,10 +88,25 @@ app.put('/VCP/:id', function(req, res) {
     else {
       console.log('content updated');
       res.redirect('/VCP');
+      db.get('SELECT content.*, users.user_email FROM content INNER JOIN users ON users.user_id = content.user_id WHERE content_id = ?', req.body.user_id, function(err) {
+        var email = new sendgrid.Email({
+          to:       'user_email',
+          from:     'mperkins1993@gmail.com',
+          subject:  'A Vitriolic Cherry Pitt Update',
+          text:     "Hi!\n You're article has been edited! Please check the edits to see what has been done to it!\n Thanks for contributing to the wiki!"
+        });
+        sendgrid.send(email, function(err, json) {
+          if (err) { 
+            return console.error(err); 
+          }
+          else {
+            console.log(json);
+          }
+        });
+      });
     }
   });
 });
-
 
 app.delete('/VCP/:id', function(req, res) {
   db.run('DELETE FROM content WHERE content_id = ?', parseInt(req.params.id), function(err) {
