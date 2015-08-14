@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>content</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Displays the title and content of the article -->
+    <h1><%= article.title %></h1>
+  </div>
+  <div class="article">
+    <%- markdown %>
+    <p><%= article.username %></p>
+    <p>last edited: <%= article.created %></p>
+  </div>
+  <!-- form buttons for editing content and deleting it -->
+  
+    <a href="/VCP/<%= article.content_id %>/edit">Edit</a>
+
+  <form action="/VCP/<%= article.content_id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+  </form>
+</body>
+</html>

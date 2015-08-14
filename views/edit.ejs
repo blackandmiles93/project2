@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>edit</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="top">
+			<!-- Allows user to edit the content by content_id number -->
+			<form action="/VCP/<%= content.content_id %>?_method=PUT" method="POST">
+				<input type="text" name="title" placeholder="<%= content.title %>"><br><br>
+				<textarea name="article"cols="50" rows="50"><%= content.article %></textarea><br><br>
+				<button>Submit</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

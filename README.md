@@ -1,8 +1,8 @@
 # project2
 
-# Vitriolic Cherry Pitt
+# A Vitriolic Cherry Pitt
 
-I will be creating a wiki page called Vitriolic Cherry Pitt (random name I know). It will be a general purpose wiki page that will have a database with a seed.js file to seed the SQLite database. Users will be able to freely edit, delete and add article content (eventually I would like to make it so that only an admin can delete items and users must have an account to edit content).
+I will be creating a wiki page called A Vitriolic Cherry Pitt (random name I know). It will be a general purpose wiki page that will have a database with a seed.js file to seed the SQLite database. Users will be able to freely edit, delete and add article content (eventually I would like to make it so that only an admin can delete items and users must have an account to edit content).
 
 # User Story
 
@@ -14,7 +14,6 @@ I will be creating a wiki page called Vitriolic Cherry Pitt (random name I know)
 <!-- ERD to appear as an image -->
 ![alt text](/miscellaneous/wikicreator.png "ERD")
 
-<!-- draw.io img -->
 
 # Routes
 

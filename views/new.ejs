@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add content</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<form action="/VCP/new" method="POST">
+    <input type="text" name="email" placeholder="youremail@mail.com">
+    <label for="email">: Email</label>
+    <input type="text" name="title">
+    <label for="title">: Title</label><br>
+    <textarea name="article" placeholder="input content here" cols="50" rows="50"></textarea>
+    <label for="article">: Article</label>
+    <!-- render all the users to choose from and store the user id in the value -->
+    <% users.forEach(function(user) { %>
+      <select name="user_id">
+        <option value="<%= user.user_id %>"><%= user.username %></option>
+      </select>
+    <% }) %>
+    <button>Add Content!</button>
+  </form>
+</body>
+</html>

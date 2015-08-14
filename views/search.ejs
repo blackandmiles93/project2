@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>search results</title>
+</head>
+<body>
+  <% results.forEach(function(result) { %>
+    <h1>Results</h1>
+    <ul>
+      <li><a href="/VCP/<%= result.content_id %>"><%= result.title %></a></li>
+    </ul>
+  <% }) %>
+</body>
+</html>

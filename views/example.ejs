@@ -1,0 +1,59 @@
+ <!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <script src="/js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <header>
+      <div class="row">
+        <div class="small-12 columns">
+          <nav class="navbar">
+            <ul>
+              <li class="menu"><a class="mlink" href="/VCP">Home</a></li>
+              <li class="menu"><a class="mlink" href="/VCP/new">Add an article</a></li>
+            <form action="/VCP/results" method="POST">
+              <input type="text" name="title" placeholder="search">
+              <button>Search</button>
+            </form>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div id="container">
+          <!-- WORK IN HERE -->
+      <div class="row">
+        <div class="small-12 columns">
+          <h1>Articles</h1>
+          <% display.forEach(function(page) { %>
+            <h2>
+              <ul>
+                <li><a href="/VCP/<%= page.content_id %>"><%= page.title %></a></li>
+              </ul>
+            </h2>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="row">
+       <div class="small-12 medium 6 columns">
+        </div>
+      </div> 
+    </footer>
+
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
