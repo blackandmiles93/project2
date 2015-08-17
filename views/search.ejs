@@ -3,24 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>search results</title>
+  <link rel="stylesheet" href="/css/foundation.css" />
+  <link rel="stylesheet" href="/css/app.css" />
+  <script src="/js/vendor/modernizr.js"></script>
 </head>
 <body>
-  <header>
-    <div class="row">
-      <div class="small-12 columns">
-        <nav class="navbar">
-          <ul>
-            <li class="menu"><a class="mlink" href="/VCP">Home</a></li>
-            <li class="menu"><a class="mlink" href="/VCP/new">Add an article</a></li>
-          <form action="/VCP/results" method="POST">
-            <input type="text" name="title" placeholder="search">
-            <button>Search</button>
+  <nav class="top-bar">
+
+      <ul class="title-area">
+
+        <li class="name"><h1><a href="/VCP">VCP</a></h1></li>
+        
+      </ul>
+
+      <section class="top-bar-section">
+
+        <ul>
+
+          <li class="right"><a class="article" href="/VCP/new">Add an article</a></li>
+
+          <form action="/search" method="GET">
+
+            <li class="has-form">
+
+              <div>
+                <div class="large-8 small-9 columns">
+                <input type="text" name="title" placeholder="search">
+              </div>
+
+              <div class="large-4 small-3 columns">
+                <button>Search</button>
+              </div>
+
+            </li>
+
           </form>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+          
+        </ul>
+
+      </section>
+
+    </nav>
 
   <div class="container">
     <div class="row">
@@ -30,6 +53,7 @@
           <ul>
             <li><a href="/VCP/<%= result.content_id %>"><%= result.title %></a></li>
           </ul>
+          <hr/>
         <% }) %>
       </div>
     </div>

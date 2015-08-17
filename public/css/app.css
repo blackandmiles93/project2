@@ -1,12 +1,29 @@
 body {
-/*	background-color: black;*/
+	background-color: black;
 }
 
 ul {
   list-style-type: none;
 }
 
-.menu {
-  display: inline;
-  padding: 10px;
+.row {
+	border-left: solid grey 2px;
+	border-right: solid grey 2px;
+}
+
+.top {
+  text-align: center;
+  color: maroon;
+}
+
+.footer {
+  background-color: #2980b9;
+}
+
+.Atitle {
+  color: white;
+}
+
+.heading {
+  color: white;
 }
