@@ -12,7 +12,7 @@ I will be creating a wiki page called A Vitriolic Cherry Pitt. It will be a gene
 # ERD
 
 <!-- ERD to appear as an image -->
-![alt text](/miscellaneous/wikicreator.png "ERD")
+![alt text](/miscellaneous/wikicreator1.png "ERD")
 
 
 # Routes

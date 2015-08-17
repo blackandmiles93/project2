@@ -30,6 +30,10 @@ app.get('/VCP', function(req, res) {
   });
 });
 
+app.get('/VCP/about', function(req, res) {
+  res.render('about.ejs');
+});
+
 app.get('/VCP/results', function(req, res) {
   // console.log(req.query)
   db.all('SELECT * FROM content', function(err, search) {

@@ -25,6 +25,7 @@
           <li class="right"><a class="article" href="/VCP/new">Add an article</a></li>
           <li><a href="/VCP/about">About VCP</a></li>
 
+
           <form action="/VCP/results" method="GET">
 
             <li class="has-form">
@@ -48,41 +49,18 @@
 
     </nav>
 
-    <h1 class="top">A Vitriolic Cherry Pitt</h1>
 
-    <div class="container">
-          <!-- WORK IN HERE -->
-      <div class="row">
-
-        <div class="small-12 columns">
-
-
-          <h2 class="heading">Featured Articles</h2>
-
+  	<div class="row">
+  		<div class="small-12 columns">
+        <div class="about">
+    			<h1>About this wiki</h1>
+          <p>This wiki is a general purpose wiki with a ridiculous name, in which the origin will not be revealed. Deal with it. You can post any articles you want, edit whatever you want, and delete whatever you want...for now...</p>
           <hr/>
-          <% display.forEach(function(page) { %>
-          <div class="panel">
-            <ul>
-              <h3>
-                <li><a href="/VCP/<%= page.content_id %>"><%= page.title %></a></li>
-              </h3>
-            </ul>
-          </div>
-          <hr/>
-          <% }) %>
-        </div>
+        </div> 
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="row full-width">
-       <div class="small-12 medium 6 columns">
-          <p>That is one angry cherry pit.</p>
-        </div>
-      </div> 
-    </footer>
-
-    <script src="/js/vendor/jquery.js"></script>
+  	 <script src="/js/vendor/jquery.js"></script>
     <script src="/js/foundation.min.js"></script>
     <script>
       $(document).foundation();

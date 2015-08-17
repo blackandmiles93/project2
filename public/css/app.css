@@ -11,13 +11,18 @@ ul {
 	border-right: solid grey 2px;
 }
 
+.full-width {
+  border-left: none;
+  border-right: none;
+}
+
 .top {
   text-align: center;
   color: maroon;
 }
 
 .footer {
-  background-color: #2980b9;
+  background-color: #FF6600;
 }
 
 .Atitle {
@@ -26,4 +31,8 @@ ul {
 
 .heading {
   color: white;
+}
+
+.about {
+  color: #B2B2B2;
 }
